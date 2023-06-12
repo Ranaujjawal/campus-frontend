@@ -39,7 +39,14 @@ function Form({onMessageSubmit}) {//{onMessageSubmit}
     const messageInputRef = useRef(null);
     const handleSubmit = (e) => {
         e.preventDefault();
-
+// i am adding this 
+      socket.emit('chat message', {
+    message: message,
+    username: username,
+    college: selectedOption,
+    avatarimg: avatarId,
+  });
+      ///upto this
        Axios.post('https://campusbackend.onrender.com/api/post', {
             message:message,
             username:username,
