@@ -13,7 +13,7 @@ import rabbitImage from './rabbit.png';
 import sendImage from './message.png';
 import { useLocation } from 'react-router-dom';
 import io from 'socket.io-client';
-const socket = io('http://localhost:8000');
+const socket = io('https://campusbackend.onrender.com');
 //import { useNavigate } from 'react-router-dom';
 
 const avatars = [
@@ -40,7 +40,7 @@ function Form({onMessageSubmit}) {//{onMessageSubmit}
     const handleSubmit = (e) => {
         e.preventDefault();
 
-       Axios.post('http://localhost:8000/api/post', {
+       Axios.post('https://campusbackend.onrender.com/api/post', {
             message:message,
             username:username,
             college:selectedOption,
