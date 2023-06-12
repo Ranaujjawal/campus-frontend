@@ -27,7 +27,7 @@ const avatars = [
   { id: 8, image:manImage1 },
   {id:9, image:rabbitImage},
 ];
-function Form({onMessageSubmit}) {//{onMessageSubmit}
+function Form({onMessageSubmit,handleRefresh}) {//{onMessageSubmit}
    // const history = useNavigate();
    const location = useLocation();
   const { username, selectedOption} = location.state;
@@ -76,6 +76,7 @@ function Form({onMessageSubmit}) {//{onMessageSubmit}
             // Clear the input field
             setMessage('');
           };*/
+      handleRefresh();
     };
     const scrollDataBoxToBottom = () => {
         const dataBox = document.getElementById('data-box');
