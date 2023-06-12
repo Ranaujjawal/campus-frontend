@@ -43,9 +43,11 @@ const DataBox = () => {
         scrollToBottom();
       }
     });
+    const interval = setInterval(fetchData, 1000); ////added this
    // scrollToBottom();
     return () => {
       socket.off('chat message');
+      clearInterval(interval); //// and thiss......
     };
   },[data,userScrolled]);
  /* useEffect(() => {
