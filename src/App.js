@@ -3,7 +3,7 @@ import io from 'socket.io-client';
 import MSG from './msg';
 import './App.css';
 import Box from './databox'
-const socket = io('http://localhost:8000');
+const socket = io('https://campusbackend.onrender.com');
 
 function App() {
  
