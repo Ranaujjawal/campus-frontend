@@ -13,7 +13,7 @@ import womanImage2 from './woman2.png';
 import rabbitImage from './rabbit.png';
 import defaultAvatarImage from './logo.png'
 import { useLocation } from 'react-router-dom';
-const socket = io('http://localhost:8000');
+const socket = io('https://campusbackend.onrender.com');
 const avatars = [
   { id: 1, image:hackerImage },
   { id: 2, image:gamerImage },
@@ -55,7 +55,7 @@ const DataBox = () => {
   }, [data]);
   const fetchData = async () => {
     try {
-      const response = await axios.get('http://localhost:8000/api/getAll',{
+      const response = await axios.get('https://campusbackend.onrender.com/api/getAll',{
       params: {
         input:type // Pass the input value as a query parameter
       }
