@@ -1,0 +1,156 @@
+/*.msg-form .message-input {
+    height: 200px;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+  }*/
+  .template{
+    margin:2rem;
+  }
+.data-box {
+    max-height: 400px; /* Adjust the maximum height as needed */
+    overflow-y: auto;
+   scroll-behavior: smooth;
+   
+  }
+  
+  .data-box ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+  
+  .data-box li {
+    padding: 0px;
+    background-color: rgb(208, 204, 204);
+   border-bottom: 1px solid #ccc;
+   border-radius: 8px;
+  /* margin-left: 10%;
+   margin-right: 10%;*/
+  }
+  
+  .data-box li:last-child {
+    border-bottom: none;
+  }
+  
+  /* Optional: Scrollbar Styles */
+  
+  .data-box::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .data-box::-webkit-scrollbar-thumb {
+    background-color: rgb(90, 72, 0);
+    border-radius: 4px;
+  }
+  
+  .data-box::-webkit-scrollbar-thumb:hover {
+    background-color: transparent;
+  }
+  
+  .data-box::-webkit-scrollbar-track {
+    background-color: #b38e8e;
+  }
+  .message-content {
+    background-color: #c6f6f8; /* Light green background for my messages */
+    padding: 8px ;
+    border-radius: 12px;
+  }
+  
+  .message-text {
+    margin: 0;
+    font-size: 14px;
+    display: inline;
+  }
+  
+  .message-sender {
+    margin-top: 4px;
+    font-size: 12px;
+    color: transparent;
+  }
+  .avatar-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  /*
+  /
+  /
+  //
+  /
+  /
+  /
+
+  */
+  .data-box {
+    height: 400px;
+    overflow-y: scroll;
+    padding: 16px;
+    border-bottom: 1px solid #dbdbdb;
+    margin-left: 2rem;
+  }
+  
+  .data-box ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .data-box li {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 16px;
+  }
+  
+  .message-content {
+    display: flex;
+    align-items: flex-start;
+  }
+  
+  .avatar-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 12px;
+  }
+  
+  .message-sender {
+    font-weight: bold;
+    margin-bottom: 4px;
+    color: black;
+    margin-right: .5rem;
+  }
+  
+  .message-text {
+    background-color: #f6f6f6;
+    padding: 8px;
+    border-radius: 16px;
+    font-size: 14px;
+    word-wrap: break-word;
+    max-width: 70%;
+  }
+  
+  h2 {
+    margin-top: 16px;
+  }
+  @media (max-width: 768px) {
+    .data-box {
+      height: 300px;
+    }
+  }
+  h2 {
+    text-align: center;
+    font-size: 30px;
+    margin: 20px 0;
+    color: #f6f2bb;
+    font-family: cursive;
+    font-weight: bold;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 576px) {
+    h2 {
+      font-size: 20px;
+      margin: 16px 0;
+    }
+  }
