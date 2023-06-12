@@ -8,7 +8,13 @@ const socket = io('https://campusbackend.onrender.com');
 function App() {
  
   const [isDataBoxRefreshNeeded, setIsDataBoxRefreshNeeded] = useState(false);
+///adding this
+ const [refresh, setRefresh] = useState(false);
 
+  const handleRefresh = () => {
+    setRefresh((prevRefresh) => !prevRefresh);
+  };
+ /////upto this
   const handleDataBoxRefresh = () => {
     setIsDataBoxRefreshNeeded(true);
   };
@@ -34,7 +40,7 @@ function App() {
         isRefreshNeeded={isDataBoxRefreshNeeded}
         onRefreshComplete={handleDataBoxRefreshComplete}
       />
-      <MSG onMessageSubmit={handleDataBoxRefresh} />
+      <MSG handleRefresh={handleRefresh} onMessageSubmit={handleDataBoxRefresh} />
       <p className='alert'>The server gets reset at 1 A.M. to clear the database</p>
     </div>
   );
