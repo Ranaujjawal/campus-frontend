@@ -47,12 +47,12 @@ const DataBox = () => {
     return () => {
       socket.off('chat message');
     };
-  },[userScrolled]);
-  useEffect(() => {
+  },[data,userScrolled]);
+ /* useEffect(() => {
    // if (dataBoxRef.current) {
       scrollToBottom();
     
-  }, [data]);
+  }, [data]);*/
   const fetchData = async () => {
     try {
       const response = await axios.get('https://campusbackend.onrender.com/api/getAll',{
@@ -62,9 +62,9 @@ const DataBox = () => {
     });
     setData(response.data.map((item) => ({ ...item, avatarId: item.avatarimg })));
       setIsLoading(false);
-      if (!userScrolled) {
+     /* if (!userScrolled) { */
         scrollToBottom();
-      }
+    //  }
     } catch (error) {
       console.error('Error retrieving data:', error);
       setIsLoading(false);
