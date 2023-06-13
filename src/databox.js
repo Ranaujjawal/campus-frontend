@@ -81,11 +81,15 @@ const DataBox = () => {
     if (dataBoxRef.current) {
       const { scrollTop, scrollHeight, clientHeight } = dataBoxRef.current;
       const isAtBottom = scrollTop + clientHeight === scrollHeight;
-      if (!isAtBottom) {
+      const isScrolledUp = scrollTop > 0 && scrollTop + clientHeight < scrollHeight;// addeed this
+      if (isScrolledUp ) { /// replace yhis !isAtBottom
         setUserScrolled(true);
-      } else {
+      } else if (isAtBottom) {
+      setUserScrolled(false);
+    } /// added this
+     /* else {
         setUserScrolled(false);
-      }
+      }*/ // commented this
     }
   };
   if (isLoading) {
