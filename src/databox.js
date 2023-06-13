@@ -49,7 +49,7 @@ const DataBox = () => {
       socket.off('chat message');
       clearInterval(interval); //// and thiss......
     };
-  },[data,userScrolled]);
+  },[data]); // ,userScrolled removed this 
  /* useEffect(() => {
    // if (dataBoxRef.current) {
       scrollToBottom();
