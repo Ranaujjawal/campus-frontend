@@ -59,23 +59,21 @@ const DataBox = () => {
     
   }, [data]);*/
   ////// starting  from here
+  const handleScroll = () => {
+  if (dataBoxRef.current) {
+    const { scrollTop } = dataBoxRef.current;
+
+    if (scrollTop < prevScrollPositionRef.current) {
+      setUserScrolled(true);
+    } else {
+      setUserScrolled(false);
+    }
+
+    prevScrollPositionRef.current = scrollTop;
+  }
+};
 useEffect(() => {
     scrollToBottom(); // Scroll to bottom initially
-
-    const handleScroll = () => {
-   if (dataBoxRef.current) {
-      const { scrollTop, scrollHeight, clientHeight } = dataBoxRef.current;
-      const isAtBottom = scrollTop + clientHeight === scrollHeight;
-      const isScrolledUp = scrollTop > 0 && scrollTop + clientHeight < scrollHeight;
-
-      if (isScrolledUp && !isAtBottom) {
-        setUserScrolled(true);
-      } else {
-        setUserScrolled(false);
-      }
-    }
-  };
-
   const handleScrollThrottled = throttle(handleScroll, 200); // Adjust throttle delay as needed
 
   window.addEventListener('scroll', handleScrollThrottled);
@@ -112,7 +110,7 @@ useEffect(() => {
       const { scrollTop, scrollHeight, clientHeight } = dataBoxRef.current;
     //  const isAtBottom = scrollTop + clientHeight === scrollHeight;
       const isScrolledUp = scrollTop > 0 && scrollTop + clientHeight < scrollHeight;// addeed this
-      if (isScrolledUp ) { /// replace yhis !isAtBottom
+      if (isScrolledUp && !isAtBottom) { /// replace yhis !isAtBottom
         setUserScrolled(true);
       }/* else if (isAtBottom) {
       setUserScrolled(false);
