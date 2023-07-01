@@ -126,7 +126,7 @@ useEffect(() => {
     <div>
        <h2>Welcome to {selectedOption} group chat</h2>
        <div className="template">
-    <div className="data-box" ref={dataBoxRef} id="data-box" onScroll={handleScroll}>
+    <div className="data-box" ref={dataBoxRef} id="data-box" >//onScroll={handleScroll}
      
       {data.length > 0 ? (
         <ul>
