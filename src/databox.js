@@ -34,6 +34,7 @@ const DataBox = () => {
   const [userScrolled, setUserScrolled] = useState(false);
   const dataBoxRef = useRef(null);
   const type=selectedOption;
+  const preScrollPositionRef= useRef(0); // new addition 1/7/2023
   useEffect(() => {
     fetchData();
 
@@ -55,6 +56,31 @@ const DataBox = () => {
       scrollToBottom();
     
   }, [data]);*/
+  ////// starting  from here
+useEffect(() => {
+    scrollToBottom(); // Scroll to bottom initially
+
+    const handleScroll = () => {
+      if (dataBoxRef.current) {
+        const { scrollTop } = dataBoxRef.current;
+
+        if (scrollTop < prevScrollPositionRef.current) {
+          setUserScrolled(true);
+        } else {
+          setUserScrolled(false);
+        }
+
+        prevScrollPositionRef.current = scrollTop;
+      }
+    };
+
+    dataBoxRef.current.addEventListener('scroll', handleScroll);
+
+    return () => {
+      dataBoxRef.current.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+/////ending here added this code to stop auto scroll1/7/2023
   const fetchData = async () => {
     try {
       const response = await axios.get('https://campusbackend.onrender.com/api/getAll',{
@@ -77,7 +103,7 @@ const DataBox = () => {
       dataBoxRef.current.scrollTop = dataBoxRef.current.scrollHeight;
     }
   };
-  const handleScroll = () => {
+/*  const handleScroll = () => {
     if (dataBoxRef.current) {
       const { scrollTop, scrollHeight, clientHeight } = dataBoxRef.current;
     //  const isAtBottom = scrollTop + clientHeight === scrollHeight;
@@ -86,12 +112,12 @@ const DataBox = () => {
         setUserScrolled(true);
       }/* else if (isAtBottom) {
       setUserScrolled(false);
-    }*/ 
-      else {
+    }*/
+  /*    else {
         setUserScrolled(false);
       } // commented this
     }
-  };
+  };*/
   if (isLoading) {
     return <div>Loading...</div>;
   }
