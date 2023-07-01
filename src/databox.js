@@ -61,25 +61,20 @@ const DataBox = () => {
   ////// starting  from here
   const handleScroll = () => {
   if (dataBoxRef.current) {
-    const { scrollTop } = dataBoxRef.current;
+    const { scrollTop, scrollHeight, clientHeight } = dataBoxRef.current;
+    const isScrolledUp = scrollTop > 0 && scrollTop + clientHeight < scrollHeight;
 
-    if (scrollTop < prevScrollPositionRef.current) {
-      setUserScrolled(true);
-    } else {
-      setUserScrolled(false);
-    }
-
-    prevScrollPositionRef.current = scrollTop;
+    setUserScrolled(isScrolledUp);
   }
 };
 useEffect(() => {
     scrollToBottom(); // Scroll to bottom initially
   const handleScrollThrottled = throttle(handleScroll, 200); // Adjust throttle delay as needed
 
-  window.addEventListener('scroll', handleScrollThrottled);
+   dataBoxRef.current.addEventListener('scroll', handleScrollThrottled);
 
   return () => {
-    window.removeEventListener('scroll', handleScrollThrottled);
+    dataBoxRef.current.removeEventListener('scroll', handleScrollThrottled);
   };
 }, []);
 /////ending here added this code to stop auto scroll1/7/2023
