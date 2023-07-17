@@ -87,9 +87,14 @@ useEffect(() => {
     setIsLoading(false);
     const isAtBottom = dataBoxRef.current
       && Math.ceil(dataBoxRef.current.scrollTop + dataBoxRef.current.clientHeight) >= dataBoxRef.current.scrollHeight;
-    if (isAtBottom) {
+   if (newData.length > 0 && isAtBottom) {
+      showNotification('New message received');
+    } else {
       scrollToBottom();
-    }
+      } catch (error) {
+    console.error('Error retrieving data:', error);
+    setIsLoading(false);
+  }
   };
   const showNotification = (message) => {
 
