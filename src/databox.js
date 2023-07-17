@@ -83,17 +83,12 @@ useEffect(() => {
         input:type // Pass the input value as a query parameter
       }
     });
-    const newData = response.data.map((item) => ({ ...item, avatarId: item.avatarimg }));
-    setData((prevData) => [...prevData, ...newData]);
+     setData(response.data.map((item) => ({ ...item, avatarId: item.avatarimg })));
     setIsLoading(false);
-    if (newData.length > 0 && userScrolled) {
-      showNotification('New message received');
-    } else {
+    const isAtBottom = dataBoxRef.current
+      && Math.ceil(dataBoxRef.current.scrollTop + dataBoxRef.current.clientHeight) >= dataBoxRef.current.scrollHeight;
+    if (isAtBottom) {
       scrollToBottom();
-    }
-    } catch (error) {
-      console.error('Error retrieving data:', error);
-      setIsLoading(false);
     }
   };
   const showNotification = (message) => {
