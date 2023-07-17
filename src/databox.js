@@ -58,27 +58,22 @@ const DataBox = () => {
       const { scrollTop, scrollHeight, clientHeight } = dataBoxRef.current;
       const isScrolledUp = scrollTop > 0 && scrollTop + clientHeight < scrollHeight;
       setUserScrolled(isScrolledUp);
+      prevScrollPositionRef.current = scrollTop + clientHeight === scrollHeight ? scrollTop : prevScrollPositionRef.current;
     }
   };
- useEffect(() => {
-  scrollToBottom();
-const handleScroll = () => {
-    if (dataBoxRef.current) {
-      const { scrollTop, scrollHeight, clientHeight } = dataBoxRef.current;
-      const isScrolledUp = scrollTop > 0 && scrollTop + clientHeight < scrollHeight;
-      setUserScrolled(isScrolledUp);
-    }
-  };
+useEffect(() => {
+    scrollToBottom();
 
-  if (dataBoxRef.current) {
     const handleScrollThrottled = throttle(handleScroll, 200);
-    dataBoxRef.current.addEventListener('scroll', handleScrollThrottled);
+    if (dataBoxRef.current) {
+      dataBoxRef.current.addEventListener('scroll', handleScrollThrottled);
 
-    return () => {
-      dataBoxRef.current.removeEventListener('scroll', handleScrollThrottled);
-    };
-  }
+      return () => {
+        dataBoxRef.current.removeEventListener('scroll', handleScrollThrottled);
+      };
+    }
   }, []);
+
   const fetchData = async () => {
     try {
       const response = await axios.get('https://campusbackend.onrender.com/api/getAll',{
@@ -88,9 +83,9 @@ const handleScroll = () => {
     });
     setData(response.data.map((item) => ({ ...item, avatarId: item.avatarimg })));
       setIsLoading(false);
-     /* if (!userScrolled) { */
+      if (!userScrolled) { 
         scrollToBottom();
-    //  }
+      }
     } catch (error) {
       console.error('Error retrieving data:', error);
       setIsLoading(false);
