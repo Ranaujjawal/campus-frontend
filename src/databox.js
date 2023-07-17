@@ -36,7 +36,7 @@ const DataBox = () => {
   const [userScrolled, setUserScrolled] = useState(false);
   const dataBoxRef = useRef(null);
   const type=selectedOption;
-  const prevScrollPositionRef= useRef(0); // new addition 1/7/2023
+  //const prevScrollPositionRef= useRef(0); // new addition 1/7/2023
   useEffect(() => {
     fetchData();
 
@@ -46,11 +46,11 @@ const DataBox = () => {
         scrollToBottom();
       }
     });
-    const interval = setInterval(fetchData, 1000); ////added this
+  //  const interval = setInterval(fetchData, 1000); ////added this
    // scrollToBottom();
     return () => {
       socket.off('chat message');
-      clearInterval(interval); //// and thiss......
+    //  clearInterval(interval); //// and thiss......
     };
   },[data]); // ,userScrolled removed this 
  /* useEffect(() => {
@@ -58,26 +58,6 @@ const DataBox = () => {
       scrollToBottom();
     
   }, [data]);*/
-  ////// starting  from here
-  const handleScroll = () => {
-  if (dataBoxRef.current) {
-    const { scrollTop, scrollHeight, clientHeight } = dataBoxRef.current;
-    const isScrolledUp = scrollTop > 0 && scrollTop + clientHeight < scrollHeight;
-
-    setUserScrolled(isScrolledUp);
-  }
-};
-useEffect(() => {
-    scrollToBottom(); // Scroll to bottom initially
-  const handleScrollThrottled = throttle(handleScroll, 200); // Adjust throttle delay as needed
-
-   dataBoxRef.current.addEventListener('scroll', handleScrollThrottled);
-
-  return () => {
-    dataBoxRef.current.removeEventListener('scroll', handleScrollThrottled);
-  };
-}, []);
-/////ending here added this code to stop auto scroll1/7/2023
   const fetchData = async () => {
     try {
       const response = await axios.get('https://campusbackend.onrender.com/api/getAll',{
@@ -100,12 +80,12 @@ useEffect(() => {
       dataBoxRef.current.scrollTop = dataBoxRef.current.scrollHeight;
     }
   };
-/*  const handleScroll = () => {
+  const handleScroll = () => {
     if (dataBoxRef.current) {
       const { scrollTop, scrollHeight, clientHeight } = dataBoxRef.current;
     //  const isAtBottom = scrollTop + clientHeight === scrollHeight;
       const isScrolledUp = scrollTop > 0 && scrollTop + clientHeight < scrollHeight;// addeed this
-      if (isScrolledUp && !isAtBottom) { /// replace yhis !isAtBottom
+   //   if (isScrolledUp && !isAtBottom) { /// replace yhis !isAtBottom
         setUserScrolled(true);
       }/* else if (isAtBottom) {
       setUserScrolled(false);
@@ -115,6 +95,7 @@ useEffect(() => {
       } // commented this
     }
   };*/
+  };
   if (isLoading) {
     return <div>Loading...</div>;
   }
