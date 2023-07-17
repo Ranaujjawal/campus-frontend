@@ -52,12 +52,25 @@ const DataBox = () => {
       socket.off('chat message');
     //  clearInterval(interval); //// and thiss......
     };
-  },[data]); // ,userScrolled removed this 
- /* useEffect(() => {
-   // if (dataBoxRef.current) {
-      scrollToBottom();
-    
-  }, [data]);*/
+  },[data]);// ,userScrolled removed this 
+  const handleScroll = () => {
+    if (dataBoxRef.current) {
+      const { scrollTop, scrollHeight, clientHeight } = dataBoxRef.current;
+      const isScrolledUp = scrollTop > 0 && scrollTop + clientHeight < scrollHeight;
+      setUserScrolled(isScrolledUp);
+    }
+  };
+ useEffect(() => {
+  scrollToBottom();
+
+    const handleScrollThrottled = throttle(handleScroll, 200);
+
+    dataBoxRef.current.addEventListener('scroll', handleScrollThrottled);
+
+    return () => {
+      dataBoxRef.current.removeEventListener('scroll', handleScrollThrottled);
+    };
+  }, []);
   const fetchData = async () => {
     try {
       const response = await axios.get('https://campusbackend.onrender.com/api/getAll',{
@@ -78,24 +91,10 @@ const DataBox = () => {
   const scrollToBottom = () => {
     if (dataBoxRef.current) {
       dataBoxRef.current.scrollTop = dataBoxRef.current.scrollHeight;
+     
     }
   };
-  const handleScroll = () => {
-    if (dataBoxRef.current) {
-      const { scrollTop, scrollHeight, clientHeight } = dataBoxRef.current;
-    //  const isAtBottom = scrollTop + clientHeight === scrollHeight;
-      const isScrolledUp = scrollTop > 0 && scrollTop + clientHeight < scrollHeight;// addeed this
-   //   if (isScrolledUp && !isAtBottom) { /// replace yhis !isAtBottom
-        setUserScrolled(true);
-      }/* else if (isAtBottom) {
-      setUserScrolled(false);
-    }*/
-  /*    else {
-        setUserScrolled(false);
-      } // commented this
-    }
-  };*/
-  };
+
   if (isLoading) {
     return <div>Loading...</div>;
   }
