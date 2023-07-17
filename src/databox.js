@@ -56,8 +56,8 @@ const DataBox = () => {
 const handleScroll = () => {
   if (dataBoxRef.current) {
     const { scrollTop, scrollHeight, clientHeight } = dataBoxRef.current;
-    const isScrolledToBottom = Math.abs(scrollTop + clientHeight - scrollHeight) < 1;
-    setUserScrolled(!isScrolledToBottom);
+    const isAtBottom = Math.ceil(scrollTop + clientHeight ) >=scrollHeight;
+    setUserScrolled(!isAtBottom);
   }
 };
 
@@ -85,9 +85,11 @@ useEffect(() => {
     });
     setData(response.data.map((item) => ({ ...item, avatarId: item.avatarimg })));
       setIsLoading(false);
-      if (!userScrolled) { 
-        scrollToBottom();
-      }
+      const isAtBottom = dataBoxRef.current
+      && Math.ceil(dataBoxRef.current.scrollTop + dataBoxRef.current.clientHeight) >= dataBoxRef.current.scrollHeight;
+    if (isAtBottom) {
+      scrollToBottom();
+    }
     } catch (error) {
       console.error('Error retrieving data:', error);
       setIsLoading(false);
