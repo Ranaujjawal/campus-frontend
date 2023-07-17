@@ -36,7 +36,7 @@ const DataBox = () => {
   const [userScrolled, setUserScrolled] = useState(false);
   const dataBoxRef = useRef(null);
   const type=selectedOption;
-  //const prevScrollPositionRef= useRef(0); // new addition 1/7/2023
+  const prevScrollPositionRef= useRef(0); // new addition 1/7/2023
   useEffect(() => {
     fetchData();
 
@@ -103,7 +103,7 @@ const DataBox = () => {
     <div>
        <h2>Welcome to {selectedOption} group chat</h2>
        <div className="template">
-    <div className="data-box" ref={dataBoxRef} id="data-box" onScroll={handleScroll} >//onScroll={handleScroll}
+    <div className="data-box" ref={dataBoxRef} id="data-box">//onScroll={handleScroll}
      
       {data.length > 0 ? (
         <ul>
