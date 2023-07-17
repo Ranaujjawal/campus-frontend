@@ -62,14 +62,22 @@ const DataBox = () => {
   };
  useEffect(() => {
   scrollToBottom();
+const handleScroll = () => {
+    if (dataBoxRef.current) {
+      const { scrollTop, scrollHeight, clientHeight } = dataBoxRef.current;
+      const isScrolledUp = scrollTop > 0 && scrollTop + clientHeight < scrollHeight;
+      setUserScrolled(isScrolledUp);
+    }
+  };
 
+  if (dataBoxRef.current) {
     const handleScrollThrottled = throttle(handleScroll, 200);
-
     dataBoxRef.current.addEventListener('scroll', handleScrollThrottled);
 
     return () => {
       dataBoxRef.current.removeEventListener('scroll', handleScrollThrottled);
     };
+  }
   }, []);
   const fetchData = async () => {
     try {
