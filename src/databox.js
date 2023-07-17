@@ -83,11 +83,12 @@ useEffect(() => {
         input:type // Pass the input value as a query parameter
       }
     });
-    setData(response.data.map((item) => ({ ...item, avatarId: item.avatarimg })));
-      setIsLoading(false);
-      const isAtBottom = dataBoxRef.current
-      && Math.ceil(dataBoxRef.current.scrollTop + dataBoxRef.current.clientHeight) >= dataBoxRef.current.scrollHeight;
-    if (isAtBottom) {
+    const newData = response.data.map((item) => ({ ...item, avatarId: item.avatarimg }));
+    setData((prevData) => [...prevData, ...newData]);
+    setIsLoading(false);
+    if (newData.length > 0 && userScrolled) {
+      showNotification('New message received');
+    } else {
       scrollToBottom();
     }
     } catch (error) {
@@ -95,11 +96,19 @@ useEffect(() => {
       setIsLoading(false);
     }
   };
+  const showNotification = (message) => {
+
+  console.log(message);
+};
+
   const scrollToBottom = () => {
     if (dataBoxRef.current) {
-      dataBoxRef.current.scrollTop = dataBoxRef.current.scrollHeight;
-     
+    const { scrollTop, scrollHeight, clientHeight } = dataBoxRef.current;
+    const isAtBottom = Math.ceil(scrollTop + clientHeight) >= scrollHeight;
+    if (isAtBottom) {
+      dataBoxRef.current.scrollTop = scrollHeight;
     }
+  }
   };
 
   if (isLoading) {
