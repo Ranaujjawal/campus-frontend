@@ -53,10 +53,10 @@ const DataBox = () => {
     //  clearInterval(interval); //// and thiss......
     };
   },[data]);// ,userScrolled removed this 
- const handleScroll = () => {
+const handleScroll = () => {
   if (dataBoxRef.current) {
     const { scrollTop, scrollHeight, clientHeight } = dataBoxRef.current;
-    const isScrolledToBottom = scrollTop + clientHeight === scrollHeight;
+    const isScrolledToBottom = Math.abs(scrollTop + clientHeight - scrollHeight) < 1;
     setUserScrolled(!isScrolledToBottom);
   }
 };
