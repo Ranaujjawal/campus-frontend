@@ -53,26 +53,28 @@ const DataBox = () => {
     //  clearInterval(interval); //// and thiss......
     };
   },[data]);// ,userScrolled removed this 
-  const handleScroll = () => {
-    if (dataBoxRef.current) {
-      const { scrollTop, scrollHeight, clientHeight } = dataBoxRef.current;
-      const isScrolledUp = scrollTop > 0 && scrollTop + clientHeight < scrollHeight;
-      setUserScrolled(isScrolledUp);
-      prevScrollPositionRef.current = scrollTop + clientHeight === scrollHeight ? scrollTop : prevScrollPositionRef.current;
-    }
-  };
+ const handleScroll = () => {
+  if (dataBoxRef.current) {
+    const { scrollTop, scrollHeight, clientHeight } = dataBoxRef.current;
+    const isScrolledToBottom = scrollTop + clientHeight === scrollHeight;
+    setUserScrolled(!isScrolledToBottom);
+  }
+};
+
 useEffect(() => {
-    scrollToBottom();
+  scrollToBottom();
 
-    const handleScrollThrottled = throttle(handleScroll, 200);
-    if (dataBoxRef.current) {
-      dataBoxRef.current.addEventListener('scroll', handleScrollThrottled);
+  const handleScrollThrottled = throttle(handleScroll, 200);
 
-      return () => {
-        dataBoxRef.current.removeEventListener('scroll', handleScrollThrottled);
-      };
-    }
-  }, []);
+  if (dataBoxRef.current) {
+    dataBoxRef.current.addEventListener('scroll', handleScrollThrottled);
+
+    return () => {
+      dataBoxRef.current.removeEventListener('scroll', handleScrollThrottled);
+    };
+  }
+}, []);
+
 
   const fetchData = async () => {
     try {
