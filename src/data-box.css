@@ -1,147 +1,63 @@
-/*.msg-form .message-input {
-    height: 200px;
-    overflow-y: auto;
-    scroll-behavior: smooth;
-  }*/
-  .template{
-    margin:2rem;
-  }
-.data-box {
-    max-height: 400px; /* Adjust the maximum height as needed */
-    overflow-y: auto;
-   scroll-behavior: smooth;
-   
-  }
-  
-  .data-box ul {
-    padding: 0;
-    margin: 0;
-    list-style: none;
-  }
-  
-  .data-box li {
-    padding: 0px;
-    background-color: rgb(208, 204, 204);
-   border-bottom: 1px solid #ccc;
-   border-radius: 8px;
-  /* margin-left: 10%;
-   margin-right: 10%;*/
-  }
-  
-  .data-box li:last-child {
-    border-bottom: none;
-  }
-  
-  /* Optional: Scrollbar Styles */
-  
-  .data-box::-webkit-scrollbar {
-    width: 8px;
-  }
-  
-  .data-box::-webkit-scrollbar-thumb {
-    background-color: rgb(90, 72, 0);
-    border-radius: 4px;
-  }
-  
-  .data-box::-webkit-scrollbar-thumb:hover {
-    background-color: transparent;
-  }
-  
-  .data-box::-webkit-scrollbar-track {
-    background-color: #b38e8e;
-  }
-  .message-content {
-    background-color: #c6f6f8; 
-    padding: 8px ;
-    border-radius: 12px;
-  }
-  
- 
-  .message-sender {
-    margin-top: 4px;
-    font-size: 12px;
-    color: transparent;
-  }
-  .avatar-image {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    margin-right: 10px;
-  }
-  /*
-  /
-  /
-  //
-  /
-  /
-  /
+/* CSS */
 
-  */
-.timestamp {
-  font-size: 5px; 
-  color: #888; 
+
+
+/* Style for the main container holding the chat messages */
+.template {
+  width: 100%;
+  max-width: 600px; /* Set a maximum width for larger screens */
+  margin: 0 auto; /* Center the container horizontally */
+  padding: 20px;
 }
-  .data-box {
-    height: 400px;
-    overflow-y: scroll;
-    padding: 16px;
-    border-bottom: 1px solid #dbdbdb;
-    margin-left: 2rem;
-  }
-  
-  .data-box ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .data-box li {
-    display: flex;
-    align-items: flex-start;
-    margin-bottom: 16px;
-  }
-  
-  .message-content {
-    display: flex;
-    align-items: flex-start;
-  }
-  
-  .avatar-image {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    margin-right: 12px;
-  }
-  
-  .message-sender {
-    font-weight: bold;
-    margin-bottom: 4px;
-    color: black;
-    margin-right: .5rem;
-  }
-  
-  .message-text {
-    background-color: #f6f6f6;
-    padding: 8px;
-    border-radius: 16px;
-    font-size: 14px;
-    word-wrap: break-word;
-    max-width: 50%;
-  }
-  @media (max-width: 768px) {
-  .message-text {
-    font-size: 11px; /* Adjust the font size for long messages on smaller screens */
+
+/* Style for each individual message in the chat */
+.message-content {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+}
+
+.avatar-image {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.message-sender {
+  font-weight: bold;
+  margin-bottom: 2px;
+}
+
+.message-time {
+  font-size: 12px;
+  color: #999999;
+  margin-left: 10px;
+}
+
+.message-text {
+  flex: 1;
+  overflow-wrap: break-word; /* Allow words to break on smaller screens */
+}
+
+/* Style for the "No data available" message */
+.data-box p {
+  text-align: center;
+  font-size: 14px;
+  color: #999999;
+}
+
+/* Media query for smaller screen sizes */
+@media screen and (max-width: 480px) {
+  .template {
+    max-width: 100%; /* Set the maximum width to fill the screen */
   }
 }
-  h2 {
-    margin-top: 16px;
-  }
-  @media (max-width: 768px) {
-    .data-box {
-      height: 300px;
-        padding-left:.5rem;
-    }
-  }
+
   h2 {
     text-align: center;
     font-size: 30px;
