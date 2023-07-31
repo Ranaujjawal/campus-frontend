@@ -71,5 +71,15 @@ body {
 @media screen and (max-width: 480px) {
   .template {
     max-width: 100%; /* Set the maximum width to fill the screen */
+    padding: 10px; /* Reduce padding to fit within smaller screens */
+  }
+  
+  .data-box {
+    max-height: 300px; /* Reduce the height to fit within the screen height */
+  }
+  
+  .message-content {
+    flex-wrap: nowrap; /* Prevent messages from wrapping, show horizontal scroll if needed */
+    overflow-x: auto; /* Enable horizontal scroll when messages exceed the container width */
   }
 }
