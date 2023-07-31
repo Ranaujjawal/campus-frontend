@@ -82,6 +82,10 @@
   /
 
   */
+.timestamp {
+  font-size: 8px; 
+  color: #888; 
+}
   .data-box {
     height: 400px;
     overflow-y: scroll;
