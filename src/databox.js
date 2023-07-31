@@ -125,9 +125,7 @@ const reversedData = [...data].reverse();
                   alt="Avatar"
                   className="avatar-image"
                 />
-           <p className="message-sender">{item.username}</p>
-            <p className="message-text">{item.message}</p>
-         <p
+           <p className="message-sender">{item.username}         <p
   className="message-time"
   style={{
     maxWidth: '80px', /* Set your desired maximum width */
@@ -140,7 +138,9 @@ const reversedData = [...data].reverse();
     dateStyle: 'short',
     timeStyle: 'short',
   })}
-</p>
+</p></p>
+            <p className="message-text">{item.message}</p>
+
             </div></li>
           ))}
         </ul>
