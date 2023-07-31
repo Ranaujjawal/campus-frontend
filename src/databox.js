@@ -109,7 +109,7 @@ useEffect(() => {
   if (isLoading) {
     return <div>Loading...</div>;
   }
-const reveresedData = [...data].reverse();
+const reversedData = [...data].reverse();
   return (
     <div>
        <h2>Welcome to {selectedOption} group chat</h2>
