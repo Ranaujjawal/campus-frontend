@@ -127,7 +127,8 @@ const reversedData = [...data].reverse();
                 />
            <p className="message-sender">{item.username}</p>
             <p className="message-text">{item.message}</p>
-          </div></li>
+           <p className="message-time">{new Date(item.timestamp).toLocaleTimeString()}</p>
+            </div></li>
           ))}
         </ul>
       ) : (
