@@ -27,7 +27,9 @@ body {
 /* Style for each individual message in the chat */
 .message-content {
   display: flex;
-  align-items: center;
+  align-items: flex-start; /* Align items to the top to handle sideways overflow */
+  flex-wrap: wrap; /* Allow messages to wrap on smaller screens */
+  gap: 10px; /* Add some gap between messages */
   margin-bottom: 10px;
   background-color: #ffffff;
   border-radius: 10px;
