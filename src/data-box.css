@@ -31,7 +31,7 @@ body {
   flex-wrap: wrap; /* Allow messages to wrap on smaller screens */
   gap: 10px; /* Add some gap between messages */
   margin-bottom: 10px;
-  background-color: #ffffff;
+  background-color: #f0f0f0;
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   padding: 10px;
@@ -47,6 +47,7 @@ body {
 .message-sender {
   font-weight: bold;
   margin-bottom: 2px;
+  color: #007bff; /* Set a blue color for the sender's name */
 }
 
 .message-time {
@@ -58,6 +59,7 @@ body {
 .message-text {
   flex: 1;
   overflow-wrap: break-word; /* Allow words to break on smaller screens */
+  color: #333333; /* Set a dark gray color for the message text */
 }
 
 /* Style for the "No data available" message */
