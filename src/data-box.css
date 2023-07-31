@@ -126,9 +126,13 @@
     border-radius: 16px;
     font-size: 14px;
     word-wrap: break-word;
-    max-width: 70%;
+    max-width: 50%;
   }
-  
+  @media (max-width: 768px) {
+  .message-text {
+    font-size: 11px; /* Adjust the font size for long messages on smaller screens */
+  }
+}
   h2 {
     margin-top: 16px;
   }
