@@ -139,6 +139,7 @@
   @media (max-width: 768px) {
     .data-box {
       height: 300px;
+        width: 70%;
     }
   }
   h2 {
