@@ -140,7 +140,8 @@
     .data-box {
       height: 300px;
         width: 65%;
-       text-align:centre;
+     
+        margin-left:3rem;
     }
   }
   h2 {
