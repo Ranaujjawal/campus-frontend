@@ -132,8 +132,8 @@ const reversedData = [...data].reverse();
     whiteSpace: 'nowrap', /* Prevent line breaks */
     overflow: 'hidden', /* Hide overflowing text */
     textOverflow: 'ellipsis', /* Add an ellipsis (...) when text overflows */
-    fontSize: '2px',
-    lineHeight:'1',
+    fontSize: '7px',
+   // lineHeight:'1',
   }}
 >
   {new Date(item.timestamp).toLocaleString(undefined, {
