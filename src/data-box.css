@@ -149,6 +149,8 @@ h2 {
 @media (max-width: 768px) {
   .data-box {
     height: 300px;
+    width:60%
+    padding-left:.5rem;
   }
 
   h2 {
