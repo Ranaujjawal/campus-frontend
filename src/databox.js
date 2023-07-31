@@ -109,16 +109,16 @@ useEffect(() => {
   if (isLoading) {
     return <div>Loading...</div>;
   }
-
+const reveresedData = [...data].reverse();
   return (
     <div>
        <h2>Welcome to {selectedOption} group chat</h2>
        <div className="template">
-    <div className="data-box" ref={dataBoxRef} id="data-box">//onScroll={handleScroll}
+    <div className="data-box" ref={dataBoxRef} id="data-box">
      
-      {data.length > 0 ? (
+      {reversedData.length > 0 ? (
         <ul>
-          {data.map((item) => (
+          {reversedData.map((item) => (
             <li key={item.id}> <div className="message-content">
                <img
                   src={avatars.find((avatar) => avatar.id === item.avatarId)?.image || defaultAvatarImage}
