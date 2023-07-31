@@ -1,84 +1,161 @@
-/* CSS */
-
-/* Apply a WhatsApp-like background color and set font styles for the entire app */
-
-
-/* Style for the main container holding the chat messages */
-.template {
-  width: 100%;
-  max-width: 600px; /* Set a maximum width for larger screens */
-  margin: 0 auto; /* Center the container horizontally */
-  padding: 20px;
-}
-
-/* Style for the scrollable container holding the chat messages */
+/*.msg-form .message-input {
+    height: 200px;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+  }*/
+  .template{
+    margin:2rem;
+  }
 .data-box {
-  max-height: 400px; /* Set a fixed height for the container */
-  overflow-y: auto; /* Enable vertical scroll when content exceeds the height */
-  background-color: #f5f5f5; /* Lighter gray background for the chat box */
-  border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  padding: 10px;
-}
-
-/* Style for each individual message in the chat */
-.message-content {
-  display: flex;
-  align-items: flex-start; /* Align items to the top to handle sideways overflow */
-  flex-wrap: wrap; /* Allow messages to wrap on smaller screens */
-  gap: 10px; /* Add some gap between messages */
-  margin-bottom: 10px;
-  background-color: #ffffff; /* White background for messages */
-  border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  padding: 10px;
-}
-
-.avatar-image {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  margin-right: 10px;
-}
-
-.message-sender {
-  font-weight: bold;
-  margin-bottom: 2px;
-  color: #075e54; /* WhatsApp green for the sender's name */
-}
-
-.message-time {
-  font-size: 12px;
-  color: #999999; /* Light gray color for the timestamp */
-  margin-left: 10px;
-}
-
-.message-text {
-  flex: 1;
-  overflow-wrap: break-word; /* Allow words to break on smaller screens */
-  color: #000000; /* Black color for the message text */
-}
-
-/* Style for the "No data available" message */
-.data-box p {
-  text-align: center;
-  font-size: 14px;
-  color: #999999; /* Light gray color for the "No data available" text */
-}
-
-/* Media query for smaller screen sizes */
-@media screen and (max-width: 480px) {
-  .template {
-    max-width: 100%; /* Set the maximum width to fill the screen */
-    padding: 10px; /* Reduce padding to fit within smaller screens */
+    max-height: 400px; /* Adjust the maximum height as needed */
+    overflow-y: auto;
+   scroll-behavior: smooth;
+   
   }
   
+  .data-box ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+  
+  .data-box li {
+    padding: 0px;
+    background-color: rgb(208, 204, 204);
+   border-bottom: 1px solid #ccc;
+   border-radius: 8px;
+  /* margin-left: 10%;
+   margin-right: 10%;*/
+  }
+  
+  .data-box li:last-child {
+    border-bottom: none;
+  }
+  
+  /* Optional: Scrollbar Styles */
+  
+  .data-box::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .data-box::-webkit-scrollbar-thumb {
+    background-color: rgb(90, 72, 0);
+    border-radius: 4px;
+  }
+  
+  .data-box::-webkit-scrollbar-thumb:hover {
+    background-color: transparent;
+  }
+  
+  .data-box::-webkit-scrollbar-track {
+    background-color: #b38e8e;
+  }
+  .message-content {
+    background-color: #c6f6f8; 
+    padding: 1rem ;
+    border-radius: 12px;
+  }
+  
+ 
+  .message-sender {
+    margin-top: 4px;
+    font-size: 12px;
+    color: transparent;
+  }
+  .avatar-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  /*
+  /
+  /
+  //
+  /
+  /
+  /
+
+  */
+.timestamp {
+  font-size: 5px; 
+  color: #888; 
+}
   .data-box {
-    max-height: 300px; /* Reduce the height to fit within the screen height */
+    height: 400px;
+    overflow-y: scroll;
+    padding: 16px;
+    border-bottom: 1px solid #dbdbdb;
+    margin-left: 2rem;
+  }
+  
+  .data-box ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .data-box li {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 16px;
   }
   
   .message-content {
-    flex-wrap: nowrap; /* Prevent messages from wrapping, show horizontal scroll if needed */
-    overflow-x: auto; /* Enable horizontal scroll when messages exceed the container width */
+    display: flex;
+    align-items: flex-start;
+  }
+  
+  .avatar-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 12px;
+  }
+  
+  .message-sender {
+    font-weight: bold;
+    margin-bottom: 4px;
+    color: black;
+    margin-right: .5rem;
+  }
+  
+  .message-text {
+    background-color: #f6f6f6;
+    padding: 2rem;
+    border-radius: 16px;
+    font-size: 14px;
+    word-wrap: break-word;
+    max-width: 50%;
+  }
+  @media (max-width: 768px) {
+  .message-text {
+    font-size: 11px; /* Adjust the font size for long messages on smaller screens */
   }
 }
+  h2 {
+    margin-top: 16px;
+  }
+  @media (max-width: 768px) {
+    .data-box {
+      height: 300px;
+        width: 65%;
+    padding:0;
+    }
+  }
+  h2 {
+    text-align: center;
+    font-size: 30px;
+    margin: 20px 0;
+    color: #f6f2bb;
+    font-family: cursive;
+    font-weight: bold;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 576px) {
+    h2 {
+      font-size: 20px;
+      margin: 16px 0;
+    }
+  }
