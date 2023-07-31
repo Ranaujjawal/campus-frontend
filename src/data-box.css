@@ -51,12 +51,17 @@
     background-color: #b38e8e;
   }
   .message-content {
-    background-color: #c6f6f8; 
-    padding: 1rem ;
+    background-color: #c6f6f8; /* Light green background for my messages */
+    padding: 8px ;
     border-radius: 12px;
   }
   
- 
+  .message-text {
+    margin: 0;
+    font-size: 14px;
+    display: inline;
+  }
+  
   .message-sender {
     margin-top: 4px;
     font-size: 12px;
@@ -77,10 +82,6 @@
   /
 
   */
-.timestamp {
-  font-size: 5px; 
-  color: #888; 
-}
   .data-box {
     height: 400px;
     overflow-y: scroll;
@@ -122,25 +123,19 @@
   
   .message-text {
     background-color: #f6f6f6;
-    padding: 2rem;
+    padding: 8px;
     border-radius: 16px;
     font-size: 14px;
     word-wrap: break-word;
-    max-width: 50%;
+    max-width: 70%;
   }
-  @media (max-width: 768px) {
-  .message-text {
-    font-size: 11px; /* Adjust the font size for long messages on smaller screens */
-  }
-}
+  
   h2 {
     margin-top: 16px;
   }
   @media (max-width: 768px) {
     .data-box {
       height: 300px;
-        width: 65%;
-    padding:0;
     }
   }
   h2 {
