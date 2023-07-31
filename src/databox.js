@@ -127,12 +127,20 @@ const reversedData = [...data].reverse();
                 />
            <p className="message-sender">{item.username}</p>
             <p className="message-text">{item.message}</p>
-          <p className="message-time">
-                      {new Date(item.timestamp).toLocaleString(undefined, {
-                        dateStyle: 'short',
-                        timeStyle: 'short',
-                      })}
-                    </p>
+         <p
+  className="message-time"
+  style={{
+    maxWidth: '80px', /* Set your desired maximum width */
+    whiteSpace: 'nowrap', /* Prevent line breaks */
+    overflow: 'hidden', /* Hide overflowing text */
+    textOverflow: 'ellipsis', /* Add an ellipsis (...) when text overflows */
+  }}
+>
+  {new Date(item.timestamp).toLocaleString(undefined, {
+    dateStyle: 'short',
+    timeStyle: 'short',
+  })}
+</p>
             </div></li>
           ))}
         </ul>
