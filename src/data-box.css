@@ -1,6 +1,10 @@
 /* CSS */
 
-
+/* Apply a background color and set font styles for the entire app */
+body {
+  background-color: #f0f2f5;
+  font-family: Arial, sans-serif;
+}
 
 /* Style for the main container holding the chat messages */
 .template {
@@ -8,6 +12,16 @@
   max-width: 600px; /* Set a maximum width for larger screens */
   margin: 0 auto; /* Center the container horizontally */
   padding: 20px;
+}
+
+/* Style for the scrollable container holding the chat messages */
+.data-box {
+  max-height: 400px; /* Set a fixed height for the container */
+  overflow-y: auto; /* Enable vertical scroll when content exceeds the height */
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 10px;
 }
 
 /* Style for each individual message in the chat */
@@ -57,20 +71,3 @@
     max-width: 100%; /* Set the maximum width to fill the screen */
   }
 }
-
-  h2 {
-    text-align: center;
-    font-size: 30px;
-    margin: 20px 0;
-    color: #f6f2bb;
-    font-family: cursive;
-    font-weight: bold;
-  }
-  
-  /* Responsive Styles */
-  @media (max-width: 576px) {
-    h2 {
-      font-size: 20px;
-      margin: 16px 0;
-    }
-  }
