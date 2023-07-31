@@ -64,4 +64,27 @@
   vertical-align: middle;
   margin: 0 10px;
 }
+/* Box.css */
+
+/* Style for the box */
+.box {
+  width: 300px; /* Set a fixed width for the box */
+  height: 200px; /* Set a fixed height for the box */
+  background-color: #f0f0f0; /* Background color of the box */
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 20px auto; /* Center the box horizontally and add some margin for spacing */
+}
+
+/* Media query for smaller screen sizes */
+@media screen and (max-width: 480px) {
+  .box {
+    width: 100%; /* Set the box width to 100% to fill the screen */
+    height: auto; /* Allow the box to adjust its height based on content */
+    margin: 10px; /* Reduce the margin for smaller screens */
+    max-height: 70vh; /* Set a maximum height of 70% of the viewport height */
+    overflow-y: auto; /* Enable vertical scroll when content exceeds the height */
+  }
+}
 
