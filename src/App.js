@@ -36,7 +36,7 @@ function App() {
   }, []);
   return (
     <div className='back'>
-      <Box
+      <Box className="box"
         isRefreshNeeded={isDataBoxRefreshNeeded}
         onRefreshComplete={handleDataBoxRefreshComplete}
       />
