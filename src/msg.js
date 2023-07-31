@@ -45,6 +45,7 @@ function Form({onMessageSubmit,handleRefresh}) {//{onMessageSubmit}
     username: username,
     college: selectedOption,
     avatarimg: avatarId,
+        timestamp: new Date().toISOString(),
   });
       ///upto this
        Axios.post('https://campusbackend.onrender.com/api/post', {
@@ -52,6 +53,7 @@ function Form({onMessageSubmit,handleRefresh}) {//{onMessageSubmit}
             username:username,
             college:selectedOption,
             avatarimg:avatarId,
+          timestamp: new Date().toISOString(),
         })
         .then((response) => {
             console.log(response.data); // Handle success response from the server
