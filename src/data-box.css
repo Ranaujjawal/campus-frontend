@@ -132,7 +132,7 @@
   border-radius: 16px;
   font-size: 14px;
   word-wrap: break-word;
-  max-width: 70%;
+  max-width: 15rem;
 }
 
 h2 {
@@ -171,7 +171,7 @@ h2 {
 @media (max-width: 768px){
 .message-text {
     white-space: initial;
-    max-width: 10rem;
+    max-width: 8rem;
 }}
 @media (max-width: 768px){
 .message-content {
