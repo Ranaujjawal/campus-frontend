@@ -35,6 +35,7 @@ function App() {
     };
   }, []);
   return (
+   <div className='App'>
     <div className='back'>
    <div className="box">
       <Box className="box"
@@ -42,9 +43,9 @@ function App() {
         onRefreshComplete={handleDataBoxRefreshComplete}
       /></div>
       <MSG  handleRefresh={handleRefresh} onMessageSubmit={handleDataBoxRefresh} />
-      <p className='alert'>The server gets reset at 1 A.M. to clear the database</p>
+    
       <p className='alert'>If message does't recieve please refresh the page as it is free deployment speed is slow</p>
-    </div>
+    </div></div>
   );
 }
 /// handleRefresh={handleRefresh} removed this from MSG
