@@ -147,7 +147,7 @@ const reversedData = [...data].reverse();
           ))}
         </ul>
       ) : (
-        <p>No data available</p>
+        <p className='message-text'>Say Hii! to start chatting 🙋‍♂️</p>
       )}
     </div></div></div>
   );
